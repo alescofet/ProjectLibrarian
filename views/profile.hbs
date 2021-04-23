@@ -1,0 +1,33 @@
+<h1 class="title">Hello {{data.username}}</h1>
+<p class="weirdo">You're definitely a weirdo if you are using this app</p>
+
+
+<div class="columnasProf">
+    <div>
+        <h2>TO SEE</h2>
+        {{#each data.toSeeAnimes}}
+            <a href="/anime/anime-details/{{mal_id}}">
+                <img src={{image_url}} alt={{title}}>
+            </a>
+            <p>{{title}}</p>  
+        {{/each}}
+    </div>
+    <div>
+        <h2>SEEING</h2>
+        {{#each data.currentAnimes}}
+            <a href="/anime/anime-details/{{mal_id}}">
+                <img src={{image_url}} alt={{title}}>
+            </a>
+            <p>{{title}}</p>
+        {{/each}}
+    </div>
+    <div>
+        <h2>WATCHED</h2>
+        {{#each data.watchedAnimes}}
+            <a href="/anime/anime-details/{{mal_id}}">
+            <img src={{image_url}} alt={{title}}>
+            </a>
+            <p>{{title}}</p>
+        {{/each}}
+    </div>
+</div>

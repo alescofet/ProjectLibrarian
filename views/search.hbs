@@ -1,0 +1,28 @@
+<div>
+    <h1 class="title">Search</h1>
+</div>
+
+<div class="contenedor">
+    <div class="as">
+
+        {{#each books}}
+            <div class="col-4">
+                <a href="/books/book-details/{{id}}">
+                <div class="book">
+
+                    <img src={{volumeInfo.imageLinks.thumbnail}} alt="{{volumeInfo.title}} img">
+                    <p>{{volumeInfo.title}}</p>
+
+                </div>
+                </a>
+            </div>
+        {{/each}} 
+
+    </div>
+</div>
+
+<div class="pageSelector">
+<a href="/books/previousPage" class="btn btn-success">Previous Page</a>
+<a href="/books/firstPage" class="btn btn-success">Go to First Page</a>
+<a href="/books/nextPage" class="btn btn-success">Next Page</a>
+</div>
