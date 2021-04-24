@@ -1,31 +1,32 @@
 <h1 class="title">Hello {{data.username}}</h1>
-<p class="weirdo">You're definitely a weirdo if you are using this app</p>
+<img src="/images/{{data.avatar}}.svg" alt="">
+<p class="phrase">{{data.phrase}}</p>
 
 
 <div class="columnasProf">
     <div>
-        <h2>TO SEE</h2>
-        {{#each data.toSeeAnimes}}
-            <a href="/anime/anime-details/{{mal_id}}">
-                <img src={{image_url}} alt={{title}}>
+        <h2>READING NOW</h2>
+        {{#each data.readingNow}}
+            <a href="/books/book-details/{{book_id}}">
+                <img src={{thumbnail}} alt={{title}}>
             </a>
             <p>{{title}}</p>  
         {{/each}}
     </div>
     <div>
-        <h2>SEEING</h2>
-        {{#each data.currentAnimes}}
-            <a href="/anime/anime-details/{{mal_id}}">
-                <img src={{image_url}} alt={{title}}>
+        <h2>WISHLIST</h2>
+        {{#each data.wishlist}}
+            <a href="/books/book-details/{{book_id}}">
+                <img src={{thumbnail}} alt={{title}}>
             </a>
             <p>{{title}}</p>
         {{/each}}
     </div>
     <div>
-        <h2>WATCHED</h2>
-        {{#each data.watchedAnimes}}
-            <a href="/anime/anime-details/{{mal_id}}">
-            <img src={{image_url}} alt={{title}}>
+        <h2>BOOKS FINISHED</h2>
+        {{#each data.booksFinished}}
+            <a href="/books/book-details/{{book_id}}">
+            <img src={{thumbnail}} alt={{title}}>
             </a>
             <p>{{title}}</p>
         {{/each}}

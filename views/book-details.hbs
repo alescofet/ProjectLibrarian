@@ -1,0 +1,56 @@
+<h1 class="title">Book details</h1>
+
+<h2 class="title2">{{bookDetails.title}}</h2>
+<div class="details">
+<img src="{{bookDetails.thumbnail}}" alt="{{bookDetails.title}} image">
+    
+        <div class="botones">
+            <form action="/profile/readingNow-books" method="POST">
+
+                <div style="display: none;">
+                    <input type="text" name="_id" value="{{bookDetails._id}}">
+                </div>
+
+
+                <button type="submit" class="btn btn-success">Add to Reading now</button>
+            </form>
+            <form action="/profile/wishlist" method="POST">
+                <div style="display: none;">
+                    <input type="text" name="_id" value="{{bookDetails._id}}">
+                </div>
+                <button type="submit" class="btn btn-success">Add to wishlist</button>
+            </form>
+            <form action="/profile/finished-books" method="POST">
+                <div style="display: none;">
+                    <input type="text" name="_id" value="{{bookDetails._id}}">
+                </div>
+                <button type="submit" class="btn btn-success">Add to books finished</button>
+            </form>
+        </div>
+   
+        
+<div class="contenedor">
+    <div class="detalles">
+        <div class="sinopsis"> 
+            <b>Description:</b> {{bookDetails.description}}
+        </div>
+        <div class="pages">
+            <b>Number of Pages:</b> {{bookDetails.pageCount}}
+        </div>
+        <div class="authors">
+            
+            <b>Authors:</b> 
+            <ul>
+            {{#each bookDetails.authors}}
+                <li>{{this}}</li>
+            {{/each}}
+            </ul>
+        </div>
+        <div class="publish">
+            <b>Date of Publishment:</b> {{bookDetails.publishedDate}}
+        </div>
+        
+    </div>
+
+</div>
+</div>  

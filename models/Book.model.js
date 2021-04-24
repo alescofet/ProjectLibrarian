@@ -5,7 +5,7 @@ const bookSchema = new Schema(
     title: {type:String},
     authors: [String],
     pageCount: {type:Number},
-    publishedDate:{type:Number},
+    publishedDate:{type:String},
     description:{type:String},
     thumbnail:{type:String}
   },
