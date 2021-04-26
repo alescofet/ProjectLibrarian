@@ -1,5 +1,5 @@
 body{
-background-image: url(/images/background1.jpg);
+background-image: url(/images/background1dark.jpg);
 background-repeat: no-repeat;
 background-size: cover;
 color: white;
@@ -9,7 +9,7 @@ a{
     color: white;
 }
 
-.nav-bar{
+.navbar{
     margin-top: -60px;
     width: 100%;
     position: fixed;
@@ -18,18 +18,21 @@ a{
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    height: 60px;
+    color: white;
+}
+.navbar-nav .nav-link{
+    color: white;
+}
+.navbar-collapse{
+    background-color: rgba(245, 163, 49,0.55);
 }
 
-.menu-anchors1{
-    margin-left: 50px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+#navbarSupportedContent{
+    margin: 0;
 }
 
-.menu-anchors2{
-    margin-right: 50px;
+.nav-item{
+    margin-bottom: 30px;
 }
 
 .btn{
@@ -54,9 +57,16 @@ a{
     text-decoration: none;
 }
 
-.nav-bar a:hover{
+.navbar a:hover{
     color:  rgb(245, 163, 49);
     background-color: white;
+}
+
+.busqueda{
+    display: flex;
+    flex-direction: row;
+    float: center;
+
 }
 
 main{
@@ -116,7 +126,7 @@ align-items: center;
 .details img{
     border: solid black 0.2rem;
     height: 400px;
-    max-width: 285px;
+    width: 282px;
 }
 
 .details div{
@@ -228,6 +238,22 @@ a {
     margin: 0 auto;
 }
 
+.contenedorProf{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.editProf{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 38%;
+}
+
 .detalles{
     align-self: center;
     display: flex;
@@ -236,7 +262,13 @@ a {
     align-items: center;
 }
 
-
+.authors{
+    align-self: center;
+    width: 15rem;
+}
+.authors ul{
+    margin: 0;
+}
 .botones{
     display: flex;
     flex-direction: column;
@@ -258,17 +290,30 @@ a {
     justify-content: space-evenly;
     align-items: flex-start;
     text-align: center;
+    flex-wrap: wrap;
+}
+
+.columnasProf h2{
+    margin-top: 3rem;
+    padding: 0 0.8rem;
+    border-bottom: solid rgb(245, 163, 49) 0.4rem;
 }
 .columnasProf div{
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
     text-align: center;
-    max-width: 281px;
+    width: 295px;
+}
+.booksProf{
+    max-height: 480px;
+    margin-top: 40px;
+    overflow-y: auto;
 }
 .columnasProf img{
-    border: solid black 0.2rem;
+    border-top: solid rgb(170, 113, 34) 0.4rem;
+    border-right: solid rgb(170, 113, 34) 0.4rem;
+    border-bottom: solid rgb(245, 163, 49) 0.4rem;
+    border-left: solid rgb(245, 163, 49) 0.4rem;
     height: 400px;
     width: 280px;
 }
@@ -319,3 +364,20 @@ text-align: center;
     margin: 2rem 10%;
 }
 
+.acordeon:after {
+    content: '\1F53A'; /* Unicode character for "plus" sign (+) */
+    font-size: 13px;
+    color: #777;
+    float: right;
+    margin-left: 5px;
+  }
+  
+  .activo:after {
+    content: "\1F53B"; /* Unicode character for "minus" sign (-) */
+  }
+
+.acordeon{
+    background-color: rgba(0, 0, 0, 0);
+    color: white;
+    border: solid 0rem black;
+}

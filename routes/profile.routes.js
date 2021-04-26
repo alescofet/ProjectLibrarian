@@ -120,6 +120,46 @@ router.post(`/edit/phrase`,checkForAuth,(req,res) => {
     })
   })
 
+/* GET remove book from Reading now list */
+
+router.get(`/remove-book-readingNow/:_id`, checkForAuth, (req,res) => {
+  User.findByIdAndUpdate(req.user._id, {$pull: {readingNow:req.params._id}})
+  .then((result)=>{
+    console.log(result)
+    res.redirect('/profile')
+  })
+  .catch((error)=>{
+    res.send(error)
+  })
+  })
+
+
+/* GET remove book from Wishlist */
+
+router.get(`/remove-book-wishlist/:_id`, checkForAuth, (req,res) => {
+  User.findByIdAndUpdate(req.user._id, {$pull: {wishlist:req.params._id}})
+  .then((result)=>{
+    console.log(result)
+    res.redirect('/profile')
+  })
+  .catch((error)=>{
+    res.send(error)
+  })
+  })
+
+
+/* GET remove book from Books finished list */
+
+router.get(`/remove-book-booksFinished/:_id`, checkForAuth, (req,res) => {
+  User.findByIdAndUpdate(req.user._id, {$pull: {booksFinished:req.params._id}})
+  .then((result)=>{
+    console.log(result)
+    res.redirect('/profile')
+  })
+  .catch((error)=>{
+    res.send(error)
+  })
+  })
 
 
 module.exports = router;

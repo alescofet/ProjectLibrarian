@@ -1,25 +1,30 @@
 
-
+<div class="contenedorProf">
 <h1 class="title">Hello {{data.username}}</h1>
 <img src="{{data.avatar}}" alt="">
 <p class="phrase">{{data.phrase}}</p>
+<div class="editProf">
 <a href="/profile/edit/password" class="btn">Change password</a>
 <a href="/profile/edit/avatar" class="btn">Change avatar</a>
 <a href="/profile/edit/phrase" class="btn">Change phrase</a>
-
+</div>
+</div>
 <div class="columnasProf">
     <div>
-        <h2>READING NOW</h2>
+        <button class="acordeon"><h2>READING NOW</h2></button>
+        <div class="booksProf" style="display: none;">
         {{#each data.readingNow}}
             <a href="/profile/remove-book-readingNow/{{_id}}" class="removeBook">&#10060</a>
             <a href="/books/book-details/{{book_id}}">
                 <img src={{thumbnail}} alt={{title}}>
             </a>
-            <p>{{title}}</p>  
+            <p>{{title}}</p>
         {{/each}}
+        </div>  
     </div>
     <div>
-        <h2>WISHLIST</h2>
+        <button class="acordeon"><h2>WISHLIST</h2></button>
+        <div class="booksProf" style="display: none;">
         {{#each data.wishlist}}
             <a href="/profile/remove-book-wishlist/{{_id}}" class="removeBook">&#10060</a>
             <a href="/books/book-details/{{book_id}}">
@@ -27,9 +32,11 @@
             </a>
             <p>{{title}}</p>
         {{/each}}
+        </div>
     </div>
     <div>
-        <h2>BOOKS FINISHED</h2>
+        <button class="acordeon"><h2>BOOKS FINISHED</h2></button>
+        <div class="booksProf" style="display: none;">
         {{#each data.booksFinished}}
             <a href="/profile/remove-book-booksFinished/{{_id}}" class="removeBook">&#10060</a>
             <a href="/books/book-details/{{book_id}}">
@@ -37,5 +44,7 @@
             </a>
             <p>{{title}}</p>
         {{/each}}
+        </div>
     </div>
 </div>
+<script src="/javascripts/script.js"></script>

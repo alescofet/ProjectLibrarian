@@ -60,10 +60,6 @@ router.get(`/book-details/:book_id`, (req, res) => {
     });
 });
 
-
-
-
-
 /* GET navigate pages */
 router.get(`/nextPage`,(req,res)=>{
     startIndex += 13

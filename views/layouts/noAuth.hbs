@@ -10,21 +10,36 @@
 </head>
 </head>
 <body>
-
-    <nav class="nav-bar">
-        <div class="menu-anchors1">
-            <a href="/">Homepage</a>
-            <a href="/books/advSearch">Advanced search</a>
-            <form class="d-flex search-form" action="/books/search-query" method="post">
-                <input class="form-control me-2" type="search" placeholder="Search for your book" aria-label="Search" name="search">
-                <button class="btn btn-outline-success" type="submit">&#128269</button>
-            </form>
-        </div>
-        <div class="menu-anchors2">
-            <a href="/login">Login</a>
-            <a href="/signup">Signup</a>
-        </div>
-    </nav>
+   <nav class="navbar navbar-expand-lg">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">Project Librarian</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"><img src="/images/collapseIcon.png" alt="collapseIcon" style="width: 2rem;"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/books/advSearch">Busqueda Avanzada</a>
+        </li>
+      </ul>
+      <form class="d-flex" action="/books/search-query" method="POST">
+        <input class="form-control me-2" type="search" placeholder="Search for your book" name="search">
+        <button class="btn btn-outline-success" type="submit">&#128269</button>
+      </form>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="/signup">Signup</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/login">Login</a>
+        </li>
+        </ul>
+    </div>
+  </div>
+</nav>
     
     <main>
         {{{body}}}
@@ -32,6 +47,6 @@
 
   
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
-    <script src="/javascripts/script.js"></script>
+    
 </body>
 </html>
