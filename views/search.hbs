@@ -3,12 +3,11 @@
 </div>
 
 <div class="contenedor">
-    <div class="as">
 
         {{#each books}}
-            <div class="col-4">
+            <div class="book">
                 <a href="/books/book-details/{{id}}">
-                <div class="book">
+                <div class="book-link">
 
                     <img src={{volumeInfo.imageLinks.thumbnail}} alt="{{volumeInfo.title}} img">
                     <p>{{volumeInfo.title}}</p>
@@ -18,7 +17,6 @@
             </div>
         {{/each}} 
 
-    </div>
 </div>
 
 <div class="pageSelector">

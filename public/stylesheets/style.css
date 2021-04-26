@@ -1,0 +1,298 @@
+body{
+
+    background-size: 100vw 100vh;
+}
+
+
+.nav-bar{
+    margin-top: -60px;
+    width: 100%;
+    position: fixed;
+    background-color: rgb(245, 163, 49);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+}
+
+.menu-anchors1{
+    margin-left: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.menu-anchors2{
+    margin-right: 50px;
+}
+
+.btn{
+    background-color: rgb(245, 163, 49);
+    border: solid rgb(170, 113, 34) 1px;
+}
+
+.btn:hover{
+    background-color: rgb(170, 113, 34);
+    border: solid rgb(170, 113, 34) 1px;
+
+}
+
+.search-form{
+    margin: 0 30px;
+}
+
+.nav-bar a{
+    font-size: 1.3rem;
+    color: white;
+    padding: 12px 40px;
+    text-decoration: none;
+}
+
+.nav-bar a:hover{
+    color:  rgb(245, 163, 49);
+    background-color: white;
+}
+
+main{
+    margin-top: 60px;
+}
+
+.title{
+    font-size: 3.5rem;
+    font-weight: 600;
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.title2{
+    font-size: 2.8rem;
+    font-weight: 400;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.book{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    width: 290px;
+
+}
+
+.book p{
+    font-size: 1.45rem;
+    text-align: center;
+}
+
+.book img{
+    border: solid black 0.2rem;
+    height: 400px;
+    max-width: 285px;
+}
+
+.details{
+display: flex;
+flex-direction: column;
+justify-content: space-evenly;
+align-items: center;
+}
+
+.details img{
+    border: solid black 0.2rem;
+    height: 400px;
+    max-width: 285px;
+}
+
+.details div{
+    margin: 1rem 3rem;
+}
+
+.sinopsis{
+    text-align: justify;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+.signup{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.signupForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+
+
+.signupForm div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem 0;
+    width: 15rem;  
+}
+.login{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.loginForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+
+
+.loginForm div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem 0;
+    width: 15rem;  
+}
+
+.little-msg {
+    font-size: 1.2em;
+    font-weight: bold;
+    font-style: italic;
+    margin-top: 1.2rem;
+}
+
+.little-msg a {
+    font-style: normal;
+    text-decoration: none;
+    color: rgb(245, 163, 49);
+}
+
+.errorMsg{
+    margin-top: 3rem;
+    border: solid red 0.1rem;
+    padding: 0.5rem;
+    width: 15rem;
+    text-align: center;
+    align-self: center
+}
+
+.weirdo {
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+.gif {
+    border-radius: 15px;
+    display: flex;
+    margin: 0 auto;
+    height: 100px;
+    object-fit: cover;
+}
+
+.contenedor{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: baseline;
+    flex-wrap: wrap;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.detalles{
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.botones{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.botones button{
+    margin: 0.3rem 0;
+    width: 16rem;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.columnasProf{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    text-align: center;
+}
+.columnasProf div{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    max-width: 281px;
+}
+.columnasProf img{
+    border: solid black 0.2rem;
+    height: 400px;
+    width: 280px;
+}
+
+.removeBook{
+    align-self: flex-end;
+}
+
+.pageSelector{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    margin: 3rem auto;
+    width: 80%;
+}
+.homeBody{
+    width: 100vw;
+    height:93.5vh;
+    background-image: url(https://i.giphy.com/media/yidUzANREfLN5jczXW/giphy.webp);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    align-content: center;
+}
+.homeDiv{
+-webkit-box-shadow: 15px 10px 19px 10px rgba(245,163,49,0.55); 
+box-shadow: 15px 10px 19px 10px rgba(245,163,49,0.55);
+background: #f5a33160;
+border-radius: 1rem;
+width: 50%;
+margin: 0 auto;
+align-self: center;
+height: 20rem;
+}
+.homeDiv h1{
+text-align: center;
+}
+

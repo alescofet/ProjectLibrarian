@@ -10,8 +10,6 @@
                 <div style="display: none;">
                     <input type="text" name="_id" value="{{bookDetails._id}}">
                 </div>
-
-
                 <button type="submit" class="btn btn-success">Add to Reading now</button>
             </form>
             <form action="/profile/wishlist" method="POST">
@@ -32,10 +30,10 @@
 <div class="contenedor">
     <div class="detalles">
         <div class="sinopsis"> 
-            <b>Description:</b> {{bookDetails.description}}
+            <p><b>Description:</b> {{bookDetails.description}}</p>
         </div>
         <div class="pages">
-            <b>Number of Pages:</b> {{bookDetails.pageCount}}
+            <p><b>Number of Pages:</b> {{bookDetails.pageCount}}</p>
         </div>
         <div class="authors">
             
@@ -47,7 +45,7 @@
             </ul>
         </div>
         <div class="publish">
-            <b>Date of Publishment:</b> {{bookDetails.publishedDate}}
+            <p><b>Date of Publishment:</b> {{bookDetails.publishedDate}}</p>
         </div>
         
     </div>

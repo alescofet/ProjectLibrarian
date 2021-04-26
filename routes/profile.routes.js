@@ -2,6 +2,8 @@ const express = require('express');
 const router  = express.Router();
 const User = require('../models/User.model')
 const Book = require('../models/Book.model');
+const { findByIdAndUpdate } = require('../models/User.model');
+const bcrypt = require(`bcrypt`)
 
 
 //Middleware de checkForAuth
@@ -21,7 +23,7 @@ router.get('/', checkForAuth ,(req, res) => {
   .then((result) => {
     console.log(result);
     const layout = req.user ? '/layouts/auth' : '/layouts/noAuth'
-    res.render('profile', {data:result, layout })
+    res.render('profile', {data:result, layout: layout})
     
   })
   .catch((err) => {
@@ -61,6 +63,63 @@ router.post(`/wishlist`, checkForAuth, (req,res) => {
     res.send(error)
   })
   })
+
+  /* GET change password */
+  router.get(`/edit/password`,(req,res) => {
+    const layout = req.user ? '/layouts/auth' : '/layouts/noAuth'
+      res.render(`edit-password`, {layout:layout}
+      )
+    })
+
+/* GET render edition of profile */  
+router.get(`/edit/:edit`,(req,res) => {
+  const layout = req.user ? '/layouts/auth' : '/layouts/noAuth'
+    res.render(`edit-profile`, {edits:req.params.edit, layout:layout}
+    )
+  })
+
+
+/* POST Change password */
+router.post(`/edit/password`,checkForAuth,(req,res) => {
+  const password = req.body.password
+  if (password.length < 8){
+    const layout = req.user ? '/layouts/auth' : '/layouts/noAuth'
+    res.render(`edit-password`, {errorMessage: `La contraseña ha de tener una longitud minima de 8 caracteres`, layout: layout})
+  }else {
+const hashedPassword = bcrypt.hashSync(password, 10)
+User.findByIdAndUpdate(req.user._id, {password: hashedPassword})
+.then((result)=>{
+res.redirect(`/profile`)
+})
+.catch((err)=>{
+console.log(err)
+})
+}
+
+})
+
+/* POST Change avatar */
+router.post(`/edit/avatar`,checkForAuth,(req,res) => {
+  User.findByIdAndUpdate(req.user._id, {avatar:req.body.avatar})
+  .then((result)=>{
+    res.redirect(`/profile`)
+    })
+    .catch((err)=>{
+    console.log(err)
+    })
+  })
+
+/* POST Change phrase */
+router.post(`/edit/phrase`,checkForAuth,(req,res) => {
+  User.findByIdAndUpdate(req.user._id, {phrase:req.body.phrase})
+  .then((result)=>{
+    res.redirect(`/profile`)
+    })
+    .catch((err)=>{
+    console.log(err)
+    })
+  })
+
 
 
 module.exports = router;

@@ -8,14 +8,14 @@ let image =``
 const assignAvatar=()=>{
   randomNumber = Math.floor(Math.random()*8)
   image = {
-    0: 'anonymous',
-    1: 'homer-simpson',
-    2: 'iron-man',
-    3: 'jason-voorhees',
-    4: 'luigi',
-    5: 'scream',
-    6: 'super-mario',
-    7: 'walter-white'
+    0: "/images/anonymous-mask.svg",
+    1: "/images/homer-simpson.svg",
+    2: "/images/iron-man.svg",
+    3: "/images/jason-voorhees.svg",
+    4: "/images/luigi.svg",
+    5: "/images/scream.svg",
+    6: "/images/super-mario.svg",
+    7: "/images/walter-white.svg"
   }[randomNumber]
   return image}
 
@@ -70,7 +70,6 @@ const checkForAuth = (req, res, next)=>{
         
     } else{
       const hashedPassword = bcrypt.hashSync(password, 10)
-      console.log(avatar)
       User.create({username, password: hashedPassword, avatar})
       .then((result)=>{
         res.redirect(`/login`);
