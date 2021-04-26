@@ -1,5 +1,6 @@
 <div class="signup">
-<h2>Soy el signup</h2>
+<div class="signupDiv">
+<h2>Sign up and get your new account</h2>
 
 
 <form action="/signup" method="post" class="signupForm">
@@ -12,13 +13,7 @@
 
 <div style="display: none;">
 <input type="text" name="avatar" value={{image}}>
-
-
 </div>
-
-
-
-
 
 <button type="submit">Accept</button>
 
@@ -26,6 +21,6 @@
 {{#if errorMessage}}
 <p>{{this.errorMessage}}</p>
 {{/if}}
-
+</div>
 </div>
 

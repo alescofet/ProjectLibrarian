@@ -19,6 +19,7 @@ a{
     justify-content: space-between;
     align-items: center;
     color: white;
+    padding-bottom: 12px;
 }
 .navbar-nav .nav-link{
     color: white;
@@ -31,8 +32,16 @@ a{
     margin: 0;
 }
 
-.nav-item{
-    margin-bottom: 30px;
+ul.navbar-nav.me-auto.mb-2.mb-lg-0.right{
+    margin: 0;
+    margin-left:10%;
+    font-weight: 600;
+}
+
+ul.navbar-nav.me-auto.mb-2.mb-lg-0.left{
+    margin: 0;
+    margin-right:10%;
+    font-weight: 600;
 }
 
 .btn{
@@ -50,6 +59,10 @@ a{
     margin: 0 30px;
 }
 
+form.d-flex.searchForm{
+    margin: 0 auto;
+}
+
 .nav-bar a{
     font-size: 1.3rem;
     color: white;
@@ -65,8 +78,10 @@ a{
 .busqueda{
     display: flex;
     flex-direction: row;
-    float: center;
+}
 
+.busqueda input{
+width: 25rem;
 }
 
 main{
@@ -143,11 +158,21 @@ a {
 }
 
 .signup{
+    padding-top: 20rem;
+}
+
+.signupDiv{
+    padding: 2rem 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
+    -webkit-box-shadow: 15px 10px 19px 10px rgba(0, 0, 0, 0.55); 
+    box-shadow: 15px 10px 19px 10px rgba(20, 19, 18, 0.55);
+    background: #00000091;
+    border-radius: 1rem;
+    width: 50%;
+    margin: 0 auto;
 }
 
 .signupForm{
@@ -167,14 +192,27 @@ a {
     margin: 1rem 0;
     width: 15rem;  
 }
+
+.signupForm button{
+    margin-top: 1rem;
+}
+
 .login{
+    padding-top: 20rem;
+}
+.loginDiv{
+    padding: 2rem 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
+    -webkit-box-shadow: 15px 10px 19px 10px rgba(0, 0, 0, 0.55); 
+    box-shadow: 15px 10px 19px 10px rgba(20, 19, 18, 0.55);
+    background: #00000091;
+    border-radius: 1rem;
+    width: 50%;
+    margin: 0 auto;
 }
-
 .loginForm{
     display: flex;
     flex-direction: column;
@@ -183,6 +221,9 @@ a {
     width: 50%;
 }
 
+.loginForm button{
+    margin-top: 1rem;
+}
 
 .loginForm div{
     display: flex;
@@ -191,41 +232,6 @@ a {
     align-items: center;
     margin: 1rem 0;
     width: 15rem;  
-}
-
-.little-msg {
-    font-size: 1.2em;
-    font-weight: bold;
-    font-style: italic;
-    margin-top: 1.2rem;
-}
-
-.little-msg a {
-    font-style: normal;
-    text-decoration: none;
-    color: rgb(245, 163, 49);
-}
-
-.errorMsg{
-    margin-top: 3rem;
-    border: solid red 0.1rem;
-    padding: 0.5rem;
-    width: 15rem;
-    text-align: center;
-    align-self: center
-}
-
-.weirdo {
-    text-align: center;
-    font-size: 2.5rem;
-}
-
-.gif {
-    border-radius: 15px;
-    display: flex;
-    margin: 0 auto;
-    height: 100px;
-    object-fit: cover;
 }
 
 .contenedor{
@@ -245,6 +251,11 @@ a {
     align-items: center;
     width: 70%;
     margin: 0 auto;
+}
+
+.contenedorProf img{
+max-width: 240px;
+max-height: 240px;
 }
 
 .editProf{
@@ -359,7 +370,12 @@ padding-top: 3rem;
 text-align: center;
 }
 
-.homeDiv p,ul{
+.homeDiv p{
+    font-weight: 500;
+    margin: 2rem 10%;
+}
+
+.homeDiv ul{
     font-weight: 500;
     margin: 2rem 10%;
 }
