@@ -202,6 +202,11 @@ a {
     width: 50%;
     margin: 0 auto;
 }
+
+.boxDiv h2{
+    text-align: center;
+}
+
 .boxForm{
     display: flex;
     flex-direction: column;
@@ -354,6 +359,43 @@ max-height: 240px;
     margin: 3rem auto;
     width: 80%;
 }
+@media all and (max-width: 1350px)
+{
+    .homeBox{
+        padding-top: 2rem;
+    }
+    .homeDiv{
+    -webkit-box-shadow: 15px 10px 19px 10px rgba(245,163,49,0.55); 
+    box-shadow: 15px 10px 19px 10px rgba(245,163,49,0.55);
+    background: #f5a33160;
+    border-radius: 1rem;
+    width: 70%;
+    margin: 0 auto;
+    align-self: center;
+    height: 30rem;
+    color: black;
+    overflow-y: auto;
+    }
+    
+    .homeDiv::-webkit-scrollbar {
+        display: none;
+    }
+    .homeDiv h1{
+    padding-top: 2rem;
+    text-align: center;
+    }
+    
+    .homeDiv p{
+        font-weight: 500;
+        margin: 2rem 10%;
+    }
+    
+    .homeDiv ul{
+        font-weight: 500;
+        margin: 2rem 10%;
+    }
+}
+
 .homeBody{
     width: 100vw;
     height:93.5vh;
@@ -362,6 +404,7 @@ max-height: 240px;
     background-size: 100% 100%;
     align-content: center;
 }
+@media all and (min-width: 1351px){
 .homeBox{
     padding-top: 10rem;
 }
@@ -376,12 +419,8 @@ align-self: center;
 height: 25rem;
 max-height: 25rem;
 color: black;
-overflow-y: auto;
 }
 
-.homeDiv::-webkit-scrollbar {
-    display: none;
-}
 .homeDiv h1{
 padding-top: 3rem;
 text-align: center;
@@ -396,7 +435,7 @@ text-align: center;
     font-weight: 500;
     margin: 2rem 10%;
 }
-
+}
 .acordeon:after {
     content: '\1F53A'; /* Unicode character for "plus" sign (+) */
     font-size: 13px;

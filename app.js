@@ -18,7 +18,7 @@ const User = require(`./models/User.model`)
 const Book = require(`./models/Book.model`)
 
 mongoose
-  .connect(`mongodb://localhost/${process.env.DB_NAME}`, {
+  .connect(`${process.env.DB_NAME}`, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false
