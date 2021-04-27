@@ -3,7 +3,7 @@ const router  = express.Router();
 const User = require('../models/User.model')
 const Book = require('../models/Book.model');
 const bcrypt = require(`bcrypt`)
-
+let admin = false
 
 //Middleware de checkForAuth
 const checkForAuth = (req,res,next) => {
@@ -16,15 +16,16 @@ const checkForAuth = (req,res,next) => {
 
 /* GET profile page */
 router.get('/', checkForAuth ,(req, res) => {
+  admin=false
   User.findById(req.user._id)
   .populate(`booksFinished`)
   .populate(`readingNow`)
   .populate(`wishlist`)
   .then((result) => {
     console.log(result);
+    if (req.user.role=="Admin"){admin=true}
     const layout = req.user ? '/layouts/auth' : '/layouts/noAuth'
-    res.render('profile', {data:result, layout: layout})
-    
+    res.render('profile', {data:result,admin, layout: layout})
   })
   .catch((err) => {
     console.log(err); 
@@ -162,4 +163,52 @@ router.get(`/remove-book-booksFinished/:_id`, checkForAuth, (req,res) => {
   })
 
 
+
+  /* GET user list */
+router.get(`/list`, checkForAuth, (req,res) => {
+  User.find({})
+  .then((result)=>{
+    console.log(result)
+    const layout = req.user ? '/layouts/auth' : '/layouts/noAuth'
+    res.render(`user-list`, {users:result,admin, layout: layout})
+    })
+    .catch((err)=>{
+    console.log(err)
+    })
+  })
+    
+  /* GET profile page */
+  router.get('/user/:_id', checkForAuth ,(req, res) => {
+    if (admin === true){
+    User.findById(req.params._id)
+    .populate(`booksFinished`)
+    .populate(`readingNow`)
+    .populate(`wishlist`)
+    .then((result) => {
+      console.log(result);
+      const layout = req.user ? '/layouts/auth' : '/layouts/noAuth'
+      res.render('profile', {data:result,admin, layout: layout})
+    })
+    .catch((err) => {
+      console.log(err); 
+    });
+  }else{res.send(`You don't have permissions to see this page`)}
+  })
+  
+  /* GET delete profile */
+  
+  router.get(`/user/delete/:_id`,(req,res) => {
+  if(req.user._id != req.params._id){
+  User.findByIdAndDelete(req.params._id)
+  .then((result)=>{
+  console.log(result)
+  res.redirect(`/profile/list`)
+  })
+  .catch((err)=>{
+  console.log(err)
+  })
+  } else{res.redirect(`/profile/list`)}
+  
+  })
+  
 module.exports = router;

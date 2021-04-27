@@ -1,0 +1,14 @@
+{{#if admin}}
+<div class="contenedor">
+{{#each users}}
+<div class="carta">
+<a href="/profile/user/{{this._id}}"><img src="{{this.avatar}}" alt=""></a>
+<p>Username: {{this.username}}</p>
+<p>Role: {{this.role}}</p>
+<a href="/profile/user/delete/{{this._id}}">Delete User</a>
+</div>
+{{/each}}
+</div>
+{{else}}
+<p>You don't have permissions to see this page</p>
+{{/if}}

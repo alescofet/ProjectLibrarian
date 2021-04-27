@@ -13,6 +13,8 @@ const cleanString = (text) => {
   return text.replace(regex, "");
 }
 
+/* POST search and advsearch*/
+
 router.post(`/adv-search-query`,(req,res) => {
   search=``
   title = req.body.title
@@ -28,6 +30,8 @@ search = req.body.search
 startIndex = 0
 res.redirect(`/books/search`)
 })
+
+/* GET search and advsearch */
 
 router.get(`/advSearch`,(req,res) => {
   const layout = req.user ? '/layouts/auth' : '/layouts/noAuth'
