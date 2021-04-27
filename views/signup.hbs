@@ -1,9 +1,9 @@
-<div class="signup">
-<div class="signupDiv">
+<div class="box">
+<div class="boxDiv">
 <h2>Sign up and get your new account</h2>
 
 
-<form action="/signup" method="post" class="signupForm">
+<form action="/signup" method="post" class="boxForm">
 
 <label for="username">Username</label>
 <input type="text" name="username">
@@ -15,7 +15,7 @@
 <input type="text" name="avatar" value={{image}}>
 </div>
 
-<button type="submit">Accept</button>
+<button type="submit" class="btn">Accept</button>
 
 </form>
 {{#if errorMessage}}

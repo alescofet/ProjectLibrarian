@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/stylesheets/style.css">
     <title>Project Librarian</title>
 </head>
-</head>
+
 <body>
    <nav class="navbar navbar-expand-lg">
   <div class="container-fluid">
@@ -17,19 +17,19 @@
       <span class="navbar-toggler-icon"><img src="/images/collapseIcon.png" alt="collapseIcon" style="width: 2rem;"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0 right" style="margin:0!important;margin-right:10%!important;">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 right" style="margin:0!important;margin-left:10%!important;">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/">Inicio</a>
+          <a class="nav-link" href="/">Inicio</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/books/advSearch">Busqueda Avanzada</a>
         </li>
       </ul>
-      <form class="d-flex searchForm" action="/books/search-query" method="POST">
+      <form class="d-flex searchForm" action="/books/search-query" method="POST" style="align-self: center;">
         <input class="form-control me-2" type="search" placeholder="Search for your book" name="search">
         <button class="btn btn-outline-success" type="submit">&#128269</button>
       </form>
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0 left" style="margin:0!important;margin-left:10%!important;">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 right" style="margin:0!important;margin-right:10%!important;">
         <li class="nav-item">
           <a class="nav-link" href="/signup">Signup</a>
         </li>
