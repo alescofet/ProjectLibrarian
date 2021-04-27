@@ -7,7 +7,9 @@ const bookSchema = new Schema(
     pageCount: {type:Number},
     publishedDate:{type:String},
     description:{type:String},
-    thumbnail:{type:String}
+    thumbnail:{type:String},
+    price:{type:String},
+    buyLink:{type:String}
   },
   {
     timestamps:false,

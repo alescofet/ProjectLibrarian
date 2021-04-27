@@ -2,7 +2,6 @@ const express = require('express');
 const router  = express.Router();
 const User = require('../models/User.model')
 const Book = require('../models/Book.model');
-const { findByIdAndUpdate } = require('../models/User.model');
 const bcrypt = require(`bcrypt`)
 
 
@@ -14,6 +13,7 @@ const checkForAuth = (req,res,next) => {
     res.redirect('/login')
   }
 }
+
 /* GET profile page */
 router.get('/', checkForAuth ,(req, res) => {
   User.findById(req.user._id)
@@ -84,7 +84,7 @@ router.post(`/edit/password`,checkForAuth,(req,res) => {
   const password = req.body.password
   if (password.length < 8){
     const layout = req.user ? '/layouts/auth' : '/layouts/noAuth'
-    res.render(`edit-password`, {errorMessage: `La contraseña ha de tener una longitud minima de 8 caracteres`, layout: layout})
+    res.render(`edit-password`, {errorMessage: `La contraseña ha de tener una longitud mínima de 8 caracteres`, layout: layout})
   }else {
 const hashedPassword = bcrypt.hashSync(password, 10)
 User.findByIdAndUpdate(req.user._id, {password: hashedPassword})

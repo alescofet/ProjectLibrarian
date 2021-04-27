@@ -115,6 +115,8 @@ router.get(`/book-details/:book_id`, (req, res) => {
     .then((result) => {
       const book_id = result.data.id;
       let {title,authors,pageCount,publishedDate,description} = result.data.volumeInfo;
+      let price = result.data.saleInfo.listPrice.amount
+      let buyLink = result.data.saleInfo.buyLink
       description = cleanString(description)
       console.log(description);
       
@@ -125,7 +127,7 @@ router.get(`/book-details/:book_id`, (req, res) => {
             const layout = req.user ? '/layouts/auth' : '/layouts/noAuth'
             res.render(`book-details`, { bookDetails: book , layout: layout});
           } else {
-            Book.create({book_id,title,authors,pageCount,publishedDate,description,thumbnail})
+            Book.create({book_id,title,authors,pageCount,publishedDate,description,thumbnail,price,buyLink})
             .then((result) => {
               const layout = req.user ? '/layouts/auth' : '/layouts/noAuth'
               res.render(`book-details`, {bookDetails: result, layout: layout})

@@ -146,7 +146,10 @@ align-items: center;
 }
 
 .details img{
-    border: solid black 0.2rem;
+    border-top: solid rgb(170, 113, 34) 0.4rem;
+    border-right: solid rgb(170, 113, 34) 0.4rem;
+    border-bottom: solid rgb(245, 163, 49) 0.4rem;
+    border-left: solid rgb(245, 163, 49) 0.4rem;
     height: 400px;
     width: 282px;
 }
@@ -208,6 +211,14 @@ a {
     text-align: center;
 }
 
+.boxForm input{
+    margin: 0 auto;
+    margin-top: 1%;
+    width: 5rem;
+    min-width: 70%;
+    text-align: center;
+}
+
 .boxForm button{
     margin-top: 1rem;
 }
@@ -264,6 +275,12 @@ max-height: 240px;
     align-self: center;
     width: 15rem;
 }
+
+.buy a{
+    text-decoration: none;
+    color: white;
+}
+
 .authors ul{
     margin: 0;
 }
