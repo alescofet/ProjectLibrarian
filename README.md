@@ -9,7 +9,7 @@ Link a la App: https://project-librarian.herokuapp.com
 ![ScreenShot](https://i.ibb.co/K2ds1CC/Project-Librarian-project-librarian-herokuapp-com.png)
 
 ## Tecnologías
-El proyecto ha sido desarrollado en HTML, CSS, NodeJs, Express,MongoDb y Handlebars.
+El proyecto ha sido desarrollado en HTML, CSS, NodeJs, Express, Axios, MongoDb y Handlebars.
 
 ## Autor
 Alex Escofet Mata - [Alex Escofet](https://www.linkedin.com/in/alex-escofet-a08200157/)
