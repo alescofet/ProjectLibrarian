@@ -2,6 +2,11 @@ html{
     min-width: 100%;
     min-height: 100%;
 }
+
+html::-webkit-scrollbar {
+    display: none;
+}
+
 body{
 background-image: url(/images/background1dark.jpg);
 background-repeat: no-repeat;
