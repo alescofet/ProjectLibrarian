@@ -38,9 +38,6 @@ router.get(`/advSearch`,(req,res) => {
 res.render(`advanced-search`, {layout: layout})
 })
 
-
-
-
 router.get(`/search`,(req,res)=>{
   if(search.length>0){
   axios.get(`https://www.googleapis.com/books/v1/volumes?q=${search}&filter=ebooks&startIndex=${startIndex}&maxResults=12`)
@@ -51,18 +48,8 @@ router.get(`/search`,(req,res)=>{
     .catch((err)=>{
     console.log(err)
     })
-}else if(title.length>0 && authors.length>0 && category.length<1){
-axios.get(`https://www.googleapis.com/books/v1/volumes?q=${title}+inauthor:${authors}&filter=ebooks&startIndex=${startIndex}&maxResults=12`)
-.then((result)=>{
-  const layout = req.user ? '/layouts/auth' : '/layouts/noAuth'
-  res.render(`search`,{books: result.data.items, layout: layout})
-  })
-  .catch((err)=>{
-  console.log(err)
-  })
-
-}else if(title.length<1 && authors.length>0 && category.length<1){
-  axios.get(`https://www.googleapis.com/books/v1/volumes?q=inauthor:${authors}&filter=ebooks&startIndex=${startIndex}&maxResults=12`)
+  }else if(title.length>0 && authors.length>0 && category.length<1){
+  axios.get(`https://www.googleapis.com/books/v1/volumes?q=${title}+inauthor:${authors}&filter=ebooks&startIndex=${startIndex}&maxResults=12`)
   .then((result)=>{
     const layout = req.user ? '/layouts/auth' : '/layouts/noAuth'
     res.render(`search`,{books: result.data.items, layout: layout})
@@ -70,6 +57,16 @@ axios.get(`https://www.googleapis.com/books/v1/volumes?q=${title}+inauthor:${aut
     .catch((err)=>{
     console.log(err)
     })
+
+  }else if(title.length<1 && authors.length>0 && category.length<1){
+    axios.get(`https://www.googleapis.com/books/v1/volumes?q=inauthor:${authors}&filter=ebooks&startIndex=${startIndex}&maxResults=12`)
+    .then((result)=>{
+      const layout = req.user ? '/layouts/auth' : '/layouts/noAuth'
+      res.render(`search`,{books: result.data.items, layout: layout})
+      })
+      .catch((err)=>{
+      console.log(err)
+      })
   
   }else if(title.length>0 && authors.length<1 && category.length<1){
     axios.get(`https://www.googleapis.com/books/v1/volumes?q=${title}&filter=ebooks&startIndex=${startIndex}&maxResults=12`)
@@ -81,36 +78,36 @@ axios.get(`https://www.googleapis.com/books/v1/volumes?q=${title}+inauthor:${aut
       console.log(err)
       })
     
-    }else if(title.length<1 && authors.length>0 && category.length>0){
-      axios.get(`https://www.googleapis.com/books/v1/volumes?q=inauthor:${authors}+subject:${category}&filter=ebooks&startIndex=${startIndex}&maxResults=12`)
-      .then((result)=>{
-        const layout = req.user ? '/layouts/auth' : '/layouts/noAuth'
-        res.render(`search`,{books: result.data.items, layout: layout})
-        })
-        .catch((err)=>{
-        console.log(err)
-        })
-      
-      }else if(title.length<1 && authors.length<1 && category.length>0){
-      axios.get(`https://www.googleapis.com/books/v1/volumes?q=subject:${category}&filter=ebooks&startIndex=${startIndex}&maxResults=12`)
-      .then((result)=>{
-        const layout = req.user ? '/layouts/auth' : '/layouts/noAuth'
-        res.render(`search`,{books: result.data.items, layout: layout})
-        })
-        .catch((err)=>{
-        console.log(err)
-        })
-      
-      } else if(title.length>0 && authors.length>0 && category.length>0){
- axios.get(`https://www.googleapis.com/books/v1/volumes?q=${title}+inauthor:${authors}+subject:${category}&filter=ebooks&startIndex=${startIndex}&maxResults=12`)
- .then((result)=>{
-  const layout = req.user ? '/layouts/auth' : '/layouts/noAuth'
-  res.render(`search`,{books: result.data.items, layout: layout})
-  })
-  .catch((err)=>{
-  console.log(err)
-  }) 
-}
+  }else if(title.length<1 && authors.length>0 && category.length>0){
+    axios.get(`https://www.googleapis.com/books/v1/volumes?q=inauthor:${authors}+subject:${category}&filter=ebooks&startIndex=${startIndex}&maxResults=12`)
+    .then((result)=>{
+      const layout = req.user ? '/layouts/auth' : '/layouts/noAuth'
+      res.render(`search`,{books: result.data.items, layout: layout})
+      })
+      .catch((err)=>{
+      console.log(err)
+      })
+    
+  }else if(title.length<1 && authors.length<1 && category.length>0){
+  axios.get(`https://www.googleapis.com/books/v1/volumes?q=subject:${category}&filter=ebooks&startIndex=${startIndex}&maxResults=12`)
+  .then((result)=>{
+    const layout = req.user ? '/layouts/auth' : '/layouts/noAuth'
+    res.render(`search`,{books: result.data.items, layout: layout})
+    })
+    .catch((err)=>{
+    console.log(err)
+    })
+    
+  } else if(title.length>0 && authors.length>0 && category.length>0){
+  axios.get(`https://www.googleapis.com/books/v1/volumes?q=${title}+inauthor:${authors}+subject:${category}&filter=ebooks&startIndex=${startIndex}&maxResults=12`)
+  .then((result)=>{
+    const layout = req.user ? '/layouts/auth' : '/layouts/noAuth'
+    res.render(`search`,{books: result.data.items, layout: layout})
+    })
+    .catch((err)=>{
+    console.log(err)
+    }) 
+  }
 })
 
 /* GET Book details */
@@ -122,9 +119,8 @@ router.get(`/book-details/:book_id`, (req, res) => {
       let price = result.data.saleInfo.listPrice.amount
       let buyLink = result.data.saleInfo.buyLink
       description = cleanString(description)
-      console.log(description);
-      
       const thumbnail = result.data.volumeInfo.imageLinks.thumbnail;
+      
       Book.findOne( {book_id} )
         .then((book) => {
           if (book) {

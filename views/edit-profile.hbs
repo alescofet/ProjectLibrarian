@@ -2,9 +2,9 @@
 <div class="boxDiv">
 <h2>Edit profile</h2>
 
-<form action="/profile/edit/{{edits}}" method="post" class="boxForm">
+<form action="/profile/edit/{{edits.edit}}/{{edits._id}}" method="post" class="boxForm">
 
-<input class="form-control" type="text" name="{{edits}}" placeholder="new {{edits}}">
+<input class="form-control" type="text" name="{{edits.edit}}" placeholder="new {{edits.edit}}">
 
 <button type="submit" class="btn">Submit Changes</button>
 </form>

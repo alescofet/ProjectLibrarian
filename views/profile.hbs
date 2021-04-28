@@ -4,9 +4,9 @@
 <img src="{{data.avatar}}" alt="">
 <p class="phrase">{{data.phrase}}</p>
 <div class="editProf">
-<a href="/profile/edit/password" class="btn">Change password</a>
-<a href="/profile/edit/avatar" class="btn">Change avatar</a>
-<a href="/profile/edit/phrase" class="btn">Change phrase</a>
+<a href="/profile/edit/password/{{data._id}}" class="btn">Change password</a>
+<a href="/profile/edit/avatar/{{data._id}}" class="btn">Change avatar</a>
+<a href="/profile/edit/phrase/{{data._id}}" class="btn">Change phrase</a>
 </div>
 {{#if admin}}
 <a href="/profile/list" class="btn userList">Users List</a>
