@@ -34,8 +34,7 @@ const checkForAuth = (req, res, next)=>{
   router.get('/signup', (req, res, next) => {
     const layout = req.user ? '/layouts/auth' : '/layouts/noAuth'
     assignAvatar()
-    res.render('signup', {image, layout: layout});
-    console.log(image)
+    res.status(202).render('signup', {image, layout: layout});
   });
 
 
@@ -43,7 +42,7 @@ const checkForAuth = (req, res, next)=>{
 
   router.get('/login', (req, res, next) => {
     const layout = req.user ? '/layouts/auth' : '/layouts/noAuth' 
-    res.render('login', {errorMessage: req.flash(`error`), layout: layout});
+    res.status(202).render('login', {errorMessage: req.flash(`error`), layout: layout});
   });
 
 
@@ -54,11 +53,11 @@ const checkForAuth = (req, res, next)=>{
 
     if(username===`` || password===``){
         const layout = req.user ? '/layouts/auth' : '/layouts/noAuth'
-      res.render(`signup`, {errorMessage: `Tienes que rellenar todos los campos`, layout: layout})
+      res.status(202).render(`signup`, {errorMessage: `Tienes que rellenar todos los campos`, layout: layout})
 
     } else if(password.length < 8){
         const layout = req.user ? '/layouts/auth' : '/layouts/noAuth'
-        res.render(`signup`, {errorMessage: `La contraseña ha de tener una longitud minima de 8 caracteres`, layout: layout})
+        res.status(202).render(`signup`, {errorMessage: `La contraseña ha de tener una longitud minima de 8 caracteres`, layout: layout})
 
     }else{
     User.findOne({username})
@@ -66,7 +65,7 @@ const checkForAuth = (req, res, next)=>{
 
     if(user){
         const layout = req.user ? '/layouts/auth' : '/layouts/noAuth'
-        res.render(`signup`, {errorMessage:`Este usuario ya existe`, layout: layout})
+        res.status(202).render(`signup`, {errorMessage:`Este usuario ya existe`, layout: layout})
         
     } else{
       const hashedPassword = bcrypt.hashSync(password, 10)
@@ -77,7 +76,7 @@ const checkForAuth = (req, res, next)=>{
     }
     })
     .catch((err)=>{
-      console.log(err)
+      res.status(400).send(err)
     })
     };
   });

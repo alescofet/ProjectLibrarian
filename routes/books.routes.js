@@ -35,7 +35,7 @@ res.redirect(`/books/search`)
 
 router.get(`/advSearch`,(req,res) => {
   const layout = req.user ? '/layouts/auth' : '/layouts/noAuth'
-res.render(`advanced-search`, {layout: layout})
+res.status(202).render(`advanced-search`, {layout: layout})
 })
 
 router.get(`/search`,(req,res)=>{
@@ -43,69 +43,69 @@ router.get(`/search`,(req,res)=>{
   axios.get(`https://www.googleapis.com/books/v1/volumes?q=${search}&filter=ebooks&startIndex=${startIndex}&maxResults=12`)
   .then((result)=>{
     const layout = req.user ? '/layouts/auth' : '/layouts/noAuth'
-    res.render(`search`,{books: result.data.items, layout: layout})
+    res.status(202).render(`search`,{books: result.data.items, layout: layout})
     })
     .catch((err)=>{
-    console.log(err)
+    res.status(400).send(err)
     })
   }else if(title.length>0 && authors.length>0 && category.length<1){
   axios.get(`https://www.googleapis.com/books/v1/volumes?q=${title}+inauthor:${authors}&filter=ebooks&startIndex=${startIndex}&maxResults=12`)
   .then((result)=>{
     const layout = req.user ? '/layouts/auth' : '/layouts/noAuth'
-    res.render(`search`,{books: result.data.items, layout: layout})
+    res.status(202).render(`search`,{books: result.data.items, layout: layout})
     })
     .catch((err)=>{
-    console.log(err)
+    res.status(400).send(err)
     })
 
   }else if(title.length<1 && authors.length>0 && category.length<1){
     axios.get(`https://www.googleapis.com/books/v1/volumes?q=inauthor:${authors}&filter=ebooks&startIndex=${startIndex}&maxResults=12`)
     .then((result)=>{
       const layout = req.user ? '/layouts/auth' : '/layouts/noAuth'
-      res.render(`search`,{books: result.data.items, layout: layout})
+      res.status(202).render(`search`,{books: result.data.items, layout: layout})
       })
       .catch((err)=>{
-      console.log(err)
+      res.status(400).send(err)
       })
   
   }else if(title.length>0 && authors.length<1 && category.length<1){
     axios.get(`https://www.googleapis.com/books/v1/volumes?q=${title}&filter=ebooks&startIndex=${startIndex}&maxResults=12`)
     .then((result)=>{
       const layout = req.user ? '/layouts/auth' : '/layouts/noAuth'
-      res.render(`search`,{books: result.data.items, layout: layout})
+      res.status(202).render(`search`,{books: result.data.items, layout: layout})
       })
       .catch((err)=>{
-      console.log(err)
+      res.status(400).send(err)
       })
     
   }else if(title.length<1 && authors.length>0 && category.length>0){
     axios.get(`https://www.googleapis.com/books/v1/volumes?q=inauthor:${authors}+subject:${category}&filter=ebooks&startIndex=${startIndex}&maxResults=12`)
     .then((result)=>{
       const layout = req.user ? '/layouts/auth' : '/layouts/noAuth'
-      res.render(`search`,{books: result.data.items, layout: layout})
+      res.status(202).render(`search`,{books: result.data.items, layout: layout})
       })
       .catch((err)=>{
-      console.log(err)
+      res.status(400).send(err)
       })
     
   }else if(title.length<1 && authors.length<1 && category.length>0){
   axios.get(`https://www.googleapis.com/books/v1/volumes?q=subject:${category}&filter=ebooks&startIndex=${startIndex}&maxResults=12`)
   .then((result)=>{
     const layout = req.user ? '/layouts/auth' : '/layouts/noAuth'
-    res.render(`search`,{books: result.data.items, layout: layout})
+    res.status(202).render(`search`,{books: result.data.items, layout: layout})
     })
     .catch((err)=>{
-    console.log(err)
+    res.status(400).send(err)
     })
     
   } else if(title.length>0 && authors.length>0 && category.length>0){
   axios.get(`https://www.googleapis.com/books/v1/volumes?q=${title}+inauthor:${authors}+subject:${category}&filter=ebooks&startIndex=${startIndex}&maxResults=12`)
   .then((result)=>{
     const layout = req.user ? '/layouts/auth' : '/layouts/noAuth'
-    res.render(`search`,{books: result.data.items, layout: layout})
+    res.status(202).render(`search`,{books: result.data.items, layout: layout})
     })
     .catch((err)=>{
-    console.log(err)
+    res.status(400).send(err)
     }) 
   }
 })
@@ -125,17 +125,17 @@ router.get(`/book-details/:book_id`, (req, res) => {
         .then((book) => {
           if (book) {
             const layout = req.user ? '/layouts/auth' : '/layouts/noAuth'
-            res.render(`book-details`, { bookDetails: book , layout: layout});
+            res.status(202).render(`book-details`, { bookDetails: book , layout: layout});
           } else {
             Book.create({book_id,title,authors,pageCount,publishedDate,description,thumbnail,price,buyLink})
             .then((result) => {
               const layout = req.user ? '/layouts/auth' : '/layouts/noAuth'
-              res.render(`book-details`, {bookDetails: result, layout: layout})
+              res.status(202).render(`book-details`, {bookDetails: result, layout: layout})
             });
           }
         })
         .catch((err) => {
-          console.log(err)
+          res.status(400).send(err)
         });
     });
 });
