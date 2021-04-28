@@ -103,6 +103,33 @@ main{
     margin-top: 60px;
 }
 
+@media all and (max-width: 1350px){
+    .detailContainer{
+    -webkit-box-shadow: 15px 10px 19px 10px rgba(0, 0, 0, 0.55); 
+    box-shadow: 15px 10px 19px 10px rgba(20, 19, 18, 0.55);
+    background: #00000091;
+    border-radius: 1rem;
+    width: 90%;
+    min-width: 300px;
+    margin: 0 auto;
+    margin-bottom: 3rem;
+    overflow-y: scroll;
+    max-height: 450px;
+}
+}
+@media all and (min-width: 1351px){
+.detailContainer{
+    -webkit-box-shadow: 15px 10px 19px 10px rgba(0, 0, 0, 0.55); 
+    box-shadow: 15px 10px 19px 10px rgba(20, 19, 18, 0.55);
+    background: #00000091;
+    border-radius: 1rem;
+    width: 70%;
+    min-width: 300px;
+    margin: 0 auto;
+    margin-bottom: 3rem;
+
+}
+}
 .title{
     font-size: 3.5rem;
     font-weight: 600;
@@ -116,8 +143,7 @@ main{
     font-size: 2.8rem;
     font-weight: 400;
     padding: 30px;
-    display: flex;
-    justify-content: center;
+    text-align: center;
 }
 
 .book{
@@ -164,7 +190,7 @@ align-items: center;
 }
 
 .details div{
-    margin: 1rem 3rem;
+    margin: 1rem 0;
 }
 
 .sinopsis{
@@ -413,6 +439,7 @@ max-height: 240px;
     background-size: 100% 100%;
     align-content: center;
 }
+
 @media all and (min-width: 1351px){
 .homeBox{
     padding-top: 10rem;
@@ -490,4 +517,14 @@ text-align: center;
 .userList{
     margin-top: 1rem;
     width: 34.5%;
+}
+footer{
+    color: white;
+    font-weight: bold;
+    border-radius: 1rem;
+    text-align: center;
+    background-color: black;
+}
+footer img{
+    width: 40px;
 }
