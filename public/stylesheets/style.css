@@ -11,8 +11,13 @@ min-width: 100%;
 min-height: 100%;
 }
 
+
 a{
     color: white;
+}
+.navbar-brand img{
+    width: 30px;
+    margin-bottom: 2px;
 }
 
 .navbar{
