@@ -6,7 +6,7 @@ Project Librarian es una app que nos permite buscar libros mediante la API de Go
 
 
 Link a la App: https://project-librarian.herokuapp.com
-![ScreenShot](https://ibb.co/8rqxhFF)
+![ScreenShot](https://i.ibb.co/K2ds1CC/Project-Librarian-project-librarian-herokuapp-com.png)
 
 ## Tecnologías
 El proyecto ha sido desarrollado en HTML, CSS, NodeJs, Express,MongoDb y Handlebars.
