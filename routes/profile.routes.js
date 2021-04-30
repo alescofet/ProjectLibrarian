@@ -46,7 +46,7 @@ if (req.user.readingNow.includes(req.body._id)){
     res.status(400).send(err);
   });
   }
-if (req.user.wishlist.includes(req.body._id)){
+else if (req.user.wishlist.includes(req.body._id)){
   User.findByIdAndUpdate(req.user._id, {$pull: {wishlist:req.body._id}})
   .then((result) => {
     User.findByIdAndUpdate(req.user._id, {$push: {booksFinished:req.body}})
@@ -58,7 +58,7 @@ if (req.user.wishlist.includes(req.body._id)){
     res.status(400).send(err);
   });
   }
-if (req.user.booksFinished.includes(req.body._id)){
+else if (req.user.booksFinished.includes(req.body._id)){
   User.findByIdAndUpdate(req.user._id, {$pull: {booksFinished:req.body._id}})
   .then((result) => {
     User.findByIdAndUpdate(req.user._id, {$push: {booksFinished:req.body}})
@@ -69,6 +69,15 @@ if (req.user.booksFinished.includes(req.body._id)){
   .catch((err) => {
     res.status(400).send(err);
   });
+  }
+  else{
+    User.findByIdAndUpdate(req.user._id, {$push: {booksFinished:req.body}})
+      .then((result)=>{
+      res.redirect('/profile')
+      })
+      .catch((err) => {
+      res.status(400).send(err);
+    });
   }
 })
 
@@ -86,7 +95,7 @@ router.post(`/readingNow-books`, checkForAuth, (req,res) => {
       res.status(400).send(err);
     });
     }
-  if (req.user.wishlist.includes(req.body._id)){
+  else if (req.user.wishlist.includes(req.body._id)){
     User.findByIdAndUpdate(req.user._id, {$pull: {wishlist:req.body._id}})
     .then((result) => {
       User.findByIdAndUpdate(req.user._id, {$push: {readingNow:req.body}})
@@ -98,7 +107,7 @@ router.post(`/readingNow-books`, checkForAuth, (req,res) => {
       res.status(400).send(err);
     });
     }
-  if (req.user.booksFinished.includes(req.body._id)){
+  else if (req.user.booksFinished.includes(req.body._id)){
     User.findByIdAndUpdate(req.user._id, {$pull: {booksFinished:req.body._id}})
     .then((result) => {
       User.findByIdAndUpdate(req.user._id, {$push: {readingNow:req.body}})
@@ -109,6 +118,15 @@ router.post(`/readingNow-books`, checkForAuth, (req,res) => {
     .catch((err) => {
       res.status(400).send(err);
     });
+    }
+    else{
+      User.findByIdAndUpdate(req.user._id, {$push: {readingNow:req.body}})
+        .then((result)=>{
+        res.redirect('/profile')
+        })
+        .catch((err) => {
+        res.status(400).send(err);
+      });
     }
 })
 
@@ -126,7 +144,7 @@ router.post(`/wishlist`, checkForAuth, (req,res) => {
       res.status(400).send(err);
     });
     }
-  if (req.user.wishlist.includes(req.body._id)){
+  else if (req.user.wishlist.includes(req.body._id)){
     User.findByIdAndUpdate(req.user._id, {$pull: {wishlist:req.body._id}})
     .then((result) => {
       User.findByIdAndUpdate(req.user._id, {$push: {wishlist:req.body}})
@@ -138,7 +156,7 @@ router.post(`/wishlist`, checkForAuth, (req,res) => {
       res.status(400).send(err);
     });
     }
-  if (req.user.booksFinished.includes(req.body._id)){
+  else if (req.user.booksFinished.includes(req.body._id)){
     User.findByIdAndUpdate(req.user._id, {$pull: {booksFinished:req.body._id}})
     .then((result) => {
       User.findByIdAndUpdate(req.user._id, {$push: {wishlist:req.body}})
@@ -150,6 +168,15 @@ router.post(`/wishlist`, checkForAuth, (req,res) => {
       res.status(400).send(err);
     });
     }
+  else{
+    User.findByIdAndUpdate(req.user._id, {$push: {wishlist:req.body}})
+      .then((result)=>{
+      res.redirect('/profile')
+      })
+      .catch((err) => {
+      res.status(400).send(err);
+    });
+  }
 })
 
 /* GET change password */
